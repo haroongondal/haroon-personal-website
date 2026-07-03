@@ -1,4 +1,3 @@
-import Reveal from "./Reveal";
 
 function PipelineVisual() {
   return (
@@ -87,32 +86,32 @@ export default function Hero() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
-          <Reveal>
+          <div className="animate-enter">
             <p className="inline-flex items-center gap-2 rounded-full border border-edge bg-surface px-4 py-1.5 font-mono text-xs text-muted">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 blink-dot" />
               Open to senior full stack &amp; AI engineering roles
             </p>
-          </Reveal>
+          </div>
 
-          <Reveal delay={80}>
+          <div className="animate-enter" style={{ animationDelay: "80ms" }}>
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.08]">
               Haroon Mukhtar
               <span className="block mt-3 text-2xl sm:text-3xl lg:text-[2.1rem] font-medium text-gradient leading-snug">
                 Senior Full Stack Engineer · AI Engineer
               </span>
             </h1>
-          </Reveal>
+          </div>
 
-          <Reveal delay={160}>
+          <div className="animate-enter" style={{ animationDelay: "160ms" }}>
             <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted">
               I build scalable web platforms, AI agents, RAG applications, and
               cloud-powered digital products. 5+ years of experience shipping
               high-performance systems with TypeScript, React, Node.js, AWS,
               LLM agents, and retrieval-augmented architectures.
             </p>
-          </Reveal>
+          </div>
 
-          <Reveal delay={240}>
+          <div className="animate-enter" style={{ animationDelay: "240ms" }}>
             <div className="mt-9 flex flex-wrap items-center gap-3.5">
               <a
                 href="#projects"
@@ -134,9 +133,9 @@ export default function Hero() {
                 Let&apos;s Build Something →
               </a>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal delay={320}>
+          <div className="animate-enter" style={{ animationDelay: "320ms" }}>
             <div className="mt-10 flex flex-wrap gap-x-7 gap-y-2 font-mono text-xs text-muted">
               <span>TypeScript</span>
               <span>React / Next.js</span>
@@ -145,12 +144,12 @@ export default function Hero() {
               <span>LangChain</span>
               <span>RAG</span>
             </div>
-          </Reveal>
+          </div>
         </div>
 
-        <Reveal delay={200} className="hidden sm:block">
+        <div className="animate-enter hidden sm:block" style={{ animationDelay: "200ms" }}>
           <PipelineVisual />
-        </Reveal>
+        </div>
       </div>
     </section>
   );
