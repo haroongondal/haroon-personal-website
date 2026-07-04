@@ -21,6 +21,36 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    id: "outsentia-research-platform",
+    badge: "Flagship · Multi-Agent Platform",
+    badgeClass: "bg-emerald-400/10 border-emerald-400/40 text-emerald-300",
+    title: "Outsentia Research Platform",
+    tagline: "Autonomous equity research operations & earnings intelligence",
+    summary:
+      "A multi-agent platform for equity research operations, built on Mastra/TypeScript. Includes a fully automated daily Earnings & Events Monitor that pulls live data via MCP (Aiera, Gmail, Drive, Calendar), synthesizes digests against internal reports, and updates calendars with no human in the loop; a 5-pass LLM pipeline that generates polished analyst anecdotes with verbatim KPI grounding; and a conversational research agent with semantic memory recall and per-request tool routing. Architected for reliability — LLMs are used only for bounded judgment calls (structured in, structured out), while state, dedup, and templating stay deterministic in code.",
+    problem:
+      "Equity research firms face information overload during earnings seasons, requiring analysts to manually monitor live events, cross-reference internal reports, draft daily digests, and track complex KPI anecdotes across fragmented tools and data sources.",
+    solution:
+      "Designed and shipped an agentic earnings-intelligence system for a financial research firm: a self-healing daily monitor that ingests earnings/event data, drafts digest emails, and updates calendars unattended, plus a 5-pass anecdote-generation pipeline and a semantic-recall research chat agent — all backed by a code-owned dedup/state layer with LLM calls scoped to pure judgment tasks.",
+    features: [
+      "Self-healing daily Earnings & Events Monitor pulling live data via MCP",
+      "Live MCP integrations with Aiera, Gmail, Google Drive, and Google Calendar",
+      "Unattended automated synthesis of analyst-grade earnings digests and email drafts",
+      "5-pass LLM pipeline generating polished analyst anecdotes with verbatim KPI grounding",
+      "Conversational research chat agent with semantic memory recall and per-request tool routing",
+      "Custom React front end for research workflows and real-time interaction",
+    ],
+    highlights: [
+      "Mastra agent framework orchestrating LLM reasoning with deterministic TypeScript code",
+      "Architected for reliability: LLMs scoped strictly to bounded judgment calls (structured in/out)",
+      "Deterministic code-owned state, deduplication, and templating layer",
+      "Zero human-in-the-loop automated daily calendar updates and email drafting pipeline",
+    ],
+    impact:
+      "Built a multi-agent financial research platform (TypeScript/Mastra) that automates earnings monitoring, analyst report drafting, and research chat — orchestrating LLM reasoning with deterministic code, live MCP integrations (Aiera, Gmail, Drive, Calendar), and a custom React front end.",
+    stack: ["TypeScript", "Mastra", "Claude", "React", "MCP", "Aiera API", "Google Workspace APIs", "Node.js"],
+  },
+  {
     id: "ai-builder",
     badge: "Flagship · Product Engineering",
     badgeClass: "bg-sky-400/10 border-sky-400/40 text-sky-300",

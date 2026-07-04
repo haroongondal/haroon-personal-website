@@ -2,7 +2,7 @@ import Reveal from './Reveal';
 
 const EMAIL = 'haroonmukhtar4@gmail.com';
 const PHONE = '+923066661223';
-const LINKEDIN = 'https://www.linkedin.com/in/haroon-mukhtar';
+const LINKEDIN = 'https://www.linkedin.com/in/haroon66';
 
 export default function Contact() {
   return (
