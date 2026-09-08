@@ -22,8 +22,8 @@ export default function Education() {
       <div className='mx-auto max-w-6xl px-5 sm:px-8'>
         <Reveal>
           <SectionHeading
-            eyebrow='Education & Certifications'
-            title='Foundations and continued learning'
+            eyebrow='Background'
+            title='Education and certifications'
           />
         </Reveal>
 

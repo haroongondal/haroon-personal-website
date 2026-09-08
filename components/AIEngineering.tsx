@@ -35,7 +35,7 @@ export default function AIEngineering() {
           <SectionHeading
             eyebrow="AI Engineering"
             title="AI systems I build"
-            description="Not AI experiments — production AI systems. Agents that plan and execute, retrieval pipelines grounded in real data, and assistants with memory, tools, and guardrails."
+            description="Agents that plan and execute, retrieval pipelines grounded in real data, and assistants that hold memory, call tools, and run behind guardrails in production."
           />
         </Reveal>
 
@@ -54,9 +54,9 @@ export default function AIEngineering() {
                 ))}
               </div>
               <p className="mt-6 text-sm leading-relaxed text-muted">
-                I combine AI engineering with full-stack product delivery: the
-                same system that runs the agent also handles auth, streaming,
-                persistence, deployment, and the UX around it.
+                I build the agent and the product around it. The same system
+                that runs the agent also handles auth, streaming, persistence,
+                deployment, and the interface users touch.
               </p>
             </div>
           </Reveal>
@@ -86,9 +86,9 @@ export default function AIEngineering() {
                 ))}
               </div>
               <p className="mt-5 text-sm leading-relaxed text-muted">
-                Deterministic orchestration where it matters, LLM reasoning where
-                it adds value — with retrieval, memory, and tool execution as
-                first-class architecture.
+                Orchestration stays deterministic and the LLM handles the
+                reasoning steps. Retrieval, memory, and tool execution are
+                designed in from the start.
               </p>
             </div>
           </Reveal>
@@ -105,11 +105,10 @@ export default function AIEngineering() {
               Autonomous financial-events agent
             </h3>
             <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted">
-              Built an autonomous LLM agent (Mastra, TypeScript, Claude) that
-              monitors financial events daily and auto-generates analyst-grade
-              earnings digests and email drafts — integrating multiple external
-              data and productivity services through a deterministic,
-              code-orchestrated pipeline.
+              An autonomous LLM agent (Mastra, TypeScript, Claude) monitors
+              financial events daily and generates analyst-grade earnings
+              digests and email drafts. It pulls from several external data and
+              productivity services through a pipeline orchestrated in code.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {["Mastra", "TypeScript", "Claude", "Agent Orchestration", "External API Integration"].map(
@@ -132,8 +131,8 @@ export default function AIEngineering() {
               Currently exploring
             </span>
             <span>
-              Advanced agentic workflows, multi-agent systems, and scalable applied-AI product
-              architecture.
+              Agentic workflows, multi-agent systems, and how applied-AI
+              products should be structured as they grow.
             </span>
           </div>
         </Reveal>

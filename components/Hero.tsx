@@ -104,10 +104,10 @@ export default function Hero() {
 
           <div className="animate-enter" style={{ animationDelay: "160ms" }}>
             <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted">
-              I build scalable web platforms, AI agents, RAG applications, and
-              cloud-powered digital products. 5+ years of experience shipping
-              high-performance systems with TypeScript, React, Node.js, AWS,
-              LLM agents, and retrieval-augmented architectures.
+              I build web platforms, AI agents, RAG applications, and cloud-hosted
+              products. Five years of shipping production systems with
+              TypeScript, React, Node.js, AWS, LLM agents, and retrieval
+              pipelines.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ export default function Hero() {
                 href="#contact"
                 className="px-2 py-3 text-sm font-semibold text-accent hover:text-accent-3 transition-colors"
               >
-                Let&apos;s Build Something →
+                Get in touch →
               </a>
             </div>
           </div>

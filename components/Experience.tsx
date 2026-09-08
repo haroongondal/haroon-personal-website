@@ -8,13 +8,13 @@ const ROLES = [
     period: 'June 2026 — Present',
     current: true,
     summary:
-      'Built an autonomous LLM agent (Mastra, TypeScript, Claude) that monitors financial events daily and auto-generates analyst-grade earnings digests and email drafts, integrating multiple external data and productivity services through a deterministic code-orchestrated pipeline.',
+      'Built an autonomous LLM agent (Mastra, TypeScript, Claude) that monitors financial events daily and generates analyst-grade earnings digests and email drafts, pulling from several external data and productivity services through a pipeline orchestrated in code.',
     points: [
       'Built a multi-agent financial research platform (TypeScript/Mastra) automating earnings monitoring, analyst report drafting, and research chat',
       'Designed a self-healing daily monitor that ingests earnings/event data, drafts digest emails, and updates calendars unattended via MCP integrations (Aiera, Gmail, Drive, Calendar)',
-      'Engineered a 5-pass anecdote-generation pipeline generating polished analyst anecdotes with verbatim KPI grounding',
+      'Built a 5-pass pipeline that writes analyst anecdotes grounded in verbatim KPIs',
       'Built a conversational research agent with semantic memory recall and per-request tool routing',
-      'Architected a deterministic code-owned dedup, state, and templating layer with LLM calls scoped strictly to bounded judgment tasks (structured in/out)',
+      'Kept dedup, state, and templating in code, with LLM calls scoped to bounded judgment tasks (structured in, structured out)',
       'Developed a custom React front end for research operations and streaming agent interaction',
     ],
   },
@@ -24,16 +24,16 @@ const ROLES = [
     period: 'April 2024 — June 2026',
     current: false,
     summary:
-      'Leading full stack development on a no-code website publishing platform for the restaurant industry — from rendering architecture to deployment automation.',
+      'Led full stack development on a no-code website publishing platform for the restaurant industry, from rendering architecture through deployment automation.',
     points: [
       'Built a dual-environment publishing system (Live / Staging) with safe promotion workflows',
-      'Led the Gatsby → Next.js migration to a more scalable rendering architecture',
+      'Led the Gatsby to Next.js migration for a rendering architecture that scales better',
       'Designed protected public APIs and a full website management suite',
       'Shipped a GA4 / Google Search Console analytics dashboard',
       'Built the templating and drafting system powering rapid site creation',
       'Created an image library with editing and an optimization pipeline',
       'Engineered an independent responsive styling engine with mobile-specific overrides',
-      'Drove ADA-compliant architecture with a high Lighthouse / Core Web Vitals bar',
+      'Built ADA-compliant architecture and held a high Lighthouse and Core Web Vitals bar',
       'Built collaborative tools with real-time multi-user synchronization',
       'Developed dynamic form builders and AWS-driven deployment automation',
       'Automated domain and SSL provisioning; led product-driven UX improvements',
@@ -81,7 +81,7 @@ export default function Experience() {
           <SectionHeading
             eyebrow='Experience'
             title='Five years of shipping production software'
-            description='From sole frontend developer to senior engineer owning platform architecture, publishing infrastructure, and AI-powered features.'
+            description='From sole frontend developer to senior engineer owning platform architecture, publishing infrastructure, and AI features.'
           />
         </Reveal>
 

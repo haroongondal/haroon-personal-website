@@ -27,27 +27,27 @@ const PROJECTS: Project[] = [
     title: "Outsentia Research Platform",
     tagline: "Autonomous equity research operations & earnings intelligence",
     summary:
-      "A multi-agent platform for equity research operations, built on Mastra/TypeScript. Includes a fully automated daily Earnings & Events Monitor that pulls live data via MCP (Aiera, Gmail, Drive, Calendar), synthesizes digests against internal reports, and updates calendars with no human in the loop; a 5-pass LLM pipeline that generates polished analyst anecdotes with verbatim KPI grounding; and a conversational research agent with semantic memory recall and per-request tool routing. Architected for reliability — LLMs are used only for bounded judgment calls (structured in, structured out), while state, dedup, and templating stay deterministic in code.",
+      "A multi-agent platform for equity research operations, built on Mastra and TypeScript. A daily Earnings & Events Monitor pulls live data via MCP (Aiera, Gmail, Drive, Calendar), synthesizes digests against internal reports, and updates calendars with no human in the loop. A 5-pass LLM pipeline writes analyst anecdotes grounded in verbatim KPIs, and a research chat agent handles semantic memory recall and per-request tool routing. LLMs only make bounded judgment calls, structured in and structured out; state, dedup, and templating stay deterministic in code.",
     problem:
-      "Equity research firms face information overload during earnings seasons, requiring analysts to manually monitor live events, cross-reference internal reports, draft daily digests, and track complex KPI anecdotes across fragmented tools and data sources.",
+      "During earnings season, analysts monitor live events, cross-reference internal reports, draft daily digests, and track KPI anecdotes by hand, across tools and data sources that do not talk to each other.",
     solution:
-      "Designed and shipped an agentic earnings-intelligence system for a financial research firm: a self-healing daily monitor that ingests earnings/event data, drafts digest emails, and updates calendars unattended, plus a 5-pass anecdote-generation pipeline and a semantic-recall research chat agent — all backed by a code-owned dedup/state layer with LLM calls scoped to pure judgment tasks.",
+      "An earnings-intelligence system for a financial research firm. A self-healing daily monitor ingests earnings and event data, drafts digest emails, and updates calendars unattended. Alongside it run a 5-pass anecdote-generation pipeline and a research chat agent with semantic recall. Dedup and state live in code, and LLM calls are scoped to judgment tasks only.",
     features: [
       "Self-healing daily Earnings & Events Monitor pulling live data via MCP",
       "Live MCP integrations with Aiera, Gmail, Google Drive, and Google Calendar",
-      "Unattended automated synthesis of analyst-grade earnings digests and email drafts",
-      "5-pass LLM pipeline generating polished analyst anecdotes with verbatim KPI grounding",
-      "Conversational research chat agent with semantic memory recall and per-request tool routing",
+      "Unattended synthesis of analyst-grade earnings digests and email drafts",
+      "5-pass LLM pipeline writing analyst anecdotes grounded in verbatim KPIs",
+      "Research chat agent with semantic memory recall and per-request tool routing",
       "Custom React front end for research workflows and real-time interaction",
     ],
     highlights: [
       "Mastra agent framework orchestrating LLM reasoning with deterministic TypeScript code",
-      "Architected for reliability: LLMs scoped strictly to bounded judgment calls (structured in/out)",
-      "Deterministic code-owned state, deduplication, and templating layer",
-      "Zero human-in-the-loop automated daily calendar updates and email drafting pipeline",
+      "LLM calls scoped to bounded judgment tasks, structured in and structured out",
+      "State, deduplication, and templating owned by code rather than the model",
+      "Daily calendar updates and email drafting run with no human in the loop",
     ],
     impact:
-      "Built a multi-agent financial research platform (TypeScript/Mastra) that automates earnings monitoring, analyst report drafting, and research chat — orchestrating LLM reasoning with deterministic code, live MCP integrations (Aiera, Gmail, Drive, Calendar), and a custom React front end.",
+      "A multi-agent financial research platform (TypeScript, Mastra) that automates earnings monitoring, analyst report drafting, and research chat. Deterministic code orchestrates the LLM reasoning, with live MCP integrations (Aiera, Gmail, Drive, Calendar) and a custom React front end.",
     stack: ["TypeScript", "Mastra", "Claude", "React", "MCP", "Aiera API", "Google Workspace APIs", "Node.js"],
   },
   {
@@ -57,11 +57,11 @@ const PROJECTS: Project[] = [
     title: "AI Builder",
     tagline: "No-code website builder for the restaurant industry",
     summary:
-      "A full publishing platform that lets restaurant teams design, collaborate on, and ship production websites — with staging workflows, analytics, and automated AWS deployment built in.",
+      "A publishing platform where restaurant teams design, collaborate on, and ship their own websites. Staging workflows, analytics, and automated AWS deployment are part of the platform.",
     problem:
-      "Restaurant businesses needed professional, high-performance websites without engineering teams — and the platform behind them had to handle publishing, collaboration, SEO, accessibility, and hosting at scale.",
+      "Restaurant businesses needed fast, well-built websites without hiring engineers, and the platform behind those sites had to handle publishing, collaboration, SEO, accessibility, and hosting across many clients at once.",
     solution:
-      "A custom no-code builder with a drafting and templating engine, dual Live/Staging publishing workflows, real-time collaborative editing, and a scalable publishing pipeline that provisions domains and SSL automatically on AWS. Led the migration from Gatsby to Next.js to unlock a more scalable rendering architecture.",
+      "A no-code builder with a drafting and templating engine, Live and Staging publishing workflows, real-time collaborative editing, and a publishing pipeline that provisions domains and SSL on AWS automatically. I led the migration from Gatsby to Next.js for a rendering architecture that scales better.",
     features: [
       "Live / staging publishing workflows with safe promotion",
       "Collaborative multi-user editing environment",
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
       "Publishing workflow designed to scale across many client sites",
     ],
     impact:
-      "Turned website delivery into a self-serve product: restaurant sites go from draft to a live, SEO-ready, accessible production deployment without engineering involvement.",
+      "Website delivery became self-serve. A restaurant site goes from draft to a live, accessible, SEO-ready deployment without an engineer in the loop.",
     stack: ["Next.js", "React", "TypeScript", "Node.js", "AWS", "GA4 API", "Search Console API"],
   },
   {
@@ -88,9 +88,9 @@ const PROJECTS: Project[] = [
     title: "AI Trading Assistant",
     tagline: "LLM-powered financial copilot with tool orchestration",
     summary:
-      "An AI assistant that combines LLM reasoning with real portfolio data — streaming chat, RAG over financial context, market and news lookup, and multi-step tool orchestration.",
+      "An AI assistant that puts LLM reasoning on top of real portfolio data, with streaming chat, RAG over financial context, market and news lookup, and multi-step tool orchestration.",
     problem:
-      "Generic chatbots can talk about markets but can't act on a user's actual portfolio. The goal: an assistant that reasons over live holdings, retrieves relevant context, and executes multi-step workflows with real tools.",
+      "A general chatbot can discuss markets but cannot touch a user's actual portfolio. I wanted an assistant that reasons over live holdings, retrieves the context that matters, and runs multi-step workflows through real tools.",
     solution:
       "A LangChain-based agent with ReAct-style tool orchestration behind a FastAPI backend and a Next.js streaming chat frontend. ChromaDB powers RAG retrieval, persistent memory keeps conversations context-aware, and the agent plans multi-step reasoning chains across portfolio, pricing, and news tools.",
     features: [
@@ -104,11 +104,11 @@ const PROJECTS: Project[] = [
     highlights: [
       "LangChain agent framework with ReAct-style tool orchestration",
       "ChromaDB vector store powering the RAG pipeline",
-      "Deliberate separation of reasoning, retrieval, and tool execution",
-      "Agent engineering, not a chatbot wrapper",
+      "Reasoning, retrieval, and tool execution kept in separate layers",
+      "The agent plans and executes across several tools per request",
     ],
     impact:
-      "Demonstrates end-to-end applied AI: an agent that observes, reasons, retrieves, and acts on real user data through a production-shaped architecture.",
+      "An agent that observes, reasons, retrieves, and acts on real user data, on the architecture I would use in production.",
     stack: ["FastAPI", "Next.js", "LangChain", "Ollama", "ChromaDB", "Python", "TypeScript"],
   },
   {
@@ -118,11 +118,11 @@ const PROJECTS: Project[] = [
     title: "Business Operations Management System",
     tagline: "Modular platform for core business operations",
     summary:
-      "An end-to-end operations platform covering purchasing, shipping, invoicing, and finance — built as a modular monorepo with cleanly separated business domains.",
+      "An operations platform covering purchasing, shipping, invoicing, and finance, built as a modular monorepo with separate business domains.",
     problem:
       "Growing businesses juggle purchase orders, shipments, invoices, and financial records across disconnected tools, losing visibility and duplicating work.",
     solution:
-      "A modular business platform that unifies operational workflows. Domains like Inventory, Finance, and CRM live as separated modules inside a monorepo, keeping the system maintainable while workflows stay integrated end to end.",
+      "One platform for those workflows. Domains like Inventory, Finance, and CRM live as separate modules inside a monorepo, so the system stays maintainable while the workflows themselves stay connected.",
     features: [
       "Purchase orders, shipping, and invoicing workflows",
       "Financial workflows & reporting",
@@ -132,10 +132,10 @@ const PROJECTS: Project[] = [
     highlights: [
       "Modular monorepo architecture",
       "Separated domains: Inventory, Finance, CRM",
-      "Designed for maintainability as operations scale",
+      "Structured to stay maintainable as operations grow",
     ],
     impact:
-      "One system of record for operations — from purchase to payment — replacing fragmented spreadsheets and manual handoffs.",
+      "One system of record for operations, from purchase through payment, in place of scattered spreadsheets and manual handoffs.",
     stack: ["TypeScript", "React", "Node.js", "NestJS", "PostgreSQL", "Monorepo"],
   },
   {
@@ -147,9 +147,9 @@ const PROJECTS: Project[] = [
     summary:
       "A learning management system with live virtual classrooms: scheduling, video, whiteboarding, and multi-role portals for teachers, sales, and admins.",
     problem:
-      "Remote education needed more than video calls — it needed structured scheduling, interactive teaching tools, and role-specific workflows in one platform.",
+      "Video calls on their own left remote classes without scheduling, interactive teaching tools, or workflows for the different roles in a school.",
     solution:
-      "A full LMS with real-time classroom infrastructure: class scheduling, video and screen sharing, collaborative whiteboarding with annotations, and live chat — plus dedicated portals for each role in the organization.",
+      "An LMS with real-time classroom infrastructure: class scheduling, video and screen sharing, collaborative whiteboarding with annotations, and live chat, plus a dedicated portal for each role in the organization.",
     features: [
       "Class scheduling & management",
       "Video conferencing & screen sharing",
@@ -162,7 +162,7 @@ const PROJECTS: Project[] = [
       "Role-based product surfaces on a shared platform",
     ],
     impact:
-      "Enabled fully remote structured teaching with interactive tools that kept lessons engaging beyond a plain video call.",
+      "Teachers ran structured remote lessons using tools a plain video call does not provide.",
     stack: ["JavaScript", "React", "Node.js", "WebRTC", "WebSockets"],
   },
 ];
@@ -272,8 +272,8 @@ export default function Projects() {
         <Reveal>
           <SectionHeading
             eyebrow="Featured Projects"
-            title="Case studies, not a project list"
-            description="A selection of production systems I've designed and built — each one a real product with real users, real constraints, and measurable outcomes."
+            title="Selected case studies"
+            description="Production systems I designed and built, each one shipped and running with real users."
           />
         </Reveal>
 

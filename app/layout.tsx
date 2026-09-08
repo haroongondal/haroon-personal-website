@@ -17,9 +17,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Haroon Mukhtar — Senior Full Stack Engineer | AI Engineer',
+  title: 'Haroon Mukhtar · Senior Full Stack Engineer & AI Engineer',
   description:
-    'Senior Full Stack Engineer and AI Engineer building scalable web platforms, AI agents, RAG applications, and cloud-powered digital products. TypeScript, React, Next.js, Node.js, AWS, LangChain.',
+    'Senior Full Stack Engineer and AI Engineer. I build web platforms, AI agents, RAG applications, and cloud-hosted products with TypeScript, React, Next.js, Node.js, AWS, and LangChain.',
   keywords: [
     'Haroon Mukhtar',
     'Senior Full Stack Engineer',
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     'Islamabad',
   ],
   openGraph: {
-    title: 'Haroon Mukhtar — Senior Full Stack Engineer | AI Engineer',
+    title: 'Haroon Mukhtar · Senior Full Stack Engineer & AI Engineer',
     description:
-      'Builds scalable web platforms, AI agents, RAG applications, and cloud-powered digital products.',
+      'Builds web platforms, AI agents, RAG applications, and cloud-hosted products with TypeScript and AWS.',
     type: 'website',
     url: '/',
     images: [
@@ -44,15 +44,15 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Haroon Mukhtar — Senior Full Stack Engineer · AI Engineer',
+        alt: 'Haroon Mukhtar · Senior Full Stack Engineer · AI Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Haroon Mukhtar — Senior Full Stack Engineer | AI Engineer',
+    title: 'Haroon Mukhtar · Senior Full Stack Engineer & AI Engineer',
     description:
-      'Builds scalable web platforms, AI agents, RAG applications, and cloud-powered digital products.',
+      'Builds web platforms, AI agents, RAG applications, and cloud-hosted products with TypeScript and AWS.',
     images: ['/og.png'],
   },
 };
@@ -61,10 +61,11 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Haroon Mukhtar',
-  jobTitle: 'Senior Full Stack Engineer | AI Engineer',
+  jobTitle: 'Senior Full Stack Engineer & AI Engineer',
   email: 'mailto:haroonmukhtar4@gmail.com',
   telephone: '+923066661223',
   url: siteUrl,
+  sameAs: ['https://github.com/haroongondal', 'https://www.linkedin.com/in/haroon66'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Islamabad',

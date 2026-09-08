@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 const STATS = [
   { value: 5, suffix: "+", label: "Years of engineering experience" },
-  { value: 4, suffix: "", label: "Production platforms shipped end-to-end" },
+  { value: 4, suffix: "", label: "Production platforms shipped end to end" },
   { value: 3, suffix: "+", label: "AI agent & RAG systems built" },
-  { value: 90, suffix: "+", label: "Lighthouse performance targets hit" },
+  { value: 90, suffix: "+", label: "Lighthouse performance score on shipped sites" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {

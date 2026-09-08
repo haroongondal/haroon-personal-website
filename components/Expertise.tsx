@@ -10,7 +10,7 @@ const AREAS = [
     ),
     title: "Full Stack Product Engineering",
     accent: "text-sky-400",
-    body: "Scalable, maintainable product systems across the entire stack — from performance-focused frontends to modular backend services.",
+    body: "Product systems across the whole stack, from frontends built against a performance budget to backend services split into modules.",
     items: [
       "React, Next.js, Node.js, NestJS, TypeScript",
       "Scalable architecture & modular systems",
@@ -33,7 +33,7 @@ const AREAS = [
     title: "AI Agents & LLM Applications",
     accent: "text-indigo-400",
     featured: true,
-    body: "Production-grade AI systems: agents that reason, use tools, retrieve context, and hold memory — built with the same rigor as any other backend.",
+    body: "AI systems that run in production: agents that reason, call tools, retrieve context, and hold memory, built with the same rigor as any other backend.",
     items: [
       "AI agents & agentic workflows",
       "Retrieval-augmented generation (RAG)",
@@ -53,7 +53,7 @@ const AREAS = [
     ),
     title: "Cloud & Infrastructure",
     accent: "text-cyan-400",
-    body: "Cloud-backed products deployed and operated the right way — automated, observable, and fast.",
+    body: "Automated, observable cloud deployments and hosting, with the release steps kept in code.",
     items: [
       "AWS deployments & hosting architecture",
       "CI/CD pipelines & Docker",
@@ -73,7 +73,7 @@ const AREAS = [
     ),
     title: "Product Architecture & Collaboration",
     accent: "text-violet-400",
-    body: "Multi-user products with real-time collaboration and the modular foundations that keep them maintainable.",
+    body: "Multi-user products with real-time collaboration, on modular foundations that stay maintainable.",
     items: [
       "Real-time collaboration & multi-user systems",
       "Form builders & CMS / no-code systems",
@@ -91,7 +91,7 @@ export default function Expertise() {
           <SectionHeading
             eyebrow="Expertise"
             title="What I build"
-            description="Four capability areas, one common thread: production-grade systems that hold up under real users, real data, and real business requirements."
+            description="Four areas of work. Each comes down to the same thing: systems that hold up once real users and real data reach them."
           />
         </Reveal>
 

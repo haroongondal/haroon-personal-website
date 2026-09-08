@@ -3,6 +3,7 @@ import Reveal from './Reveal';
 const EMAIL = 'haroonmukhtar4@gmail.com';
 const PHONE = '+923066661223';
 const LINKEDIN = 'https://www.linkedin.com/in/haroon66';
+const GITHUB = 'https://github.com/haroongondal';
 
 export default function Contact() {
   return (
@@ -19,13 +20,13 @@ export default function Contact() {
               Contact
             </p>
             <h2 className='mt-4 text-3xl sm:text-4xl font-semibold tracking-tight'>
-              Let&apos;s build AI-powered products
+              Let&apos;s talk
             </h2>
             <p className='mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted'>
-              I&apos;m open to senior full stack roles, AI engineering
-              opportunities, applied AI and agentic workflow projects, and
-              consulting or freelance product development. If you&apos;re
-              building something ambitious, I&apos;d like to hear about it.
+              I&apos;m open to senior full stack roles, AI engineering work,
+              applied AI and agentic workflow projects, and consulting or
+              freelance product development. If that sounds like what
+              you&apos;re building, send me a note.
             </p>
 
             <div className='mt-9 flex flex-wrap items-center justify-center gap-3.5'>
@@ -40,6 +41,13 @@ export default function Contact() {
                 rel='noopener noreferrer'
                 className='rounded-full border border-edge-strong bg-surface px-6 py-3 text-sm font-semibold text-foreground hover:border-accent/50 transition-colors'>
                 LinkedIn
+              </a>
+              <a
+                href={GITHUB}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='rounded-full border border-edge-strong bg-surface px-6 py-3 text-sm font-semibold text-foreground hover:border-accent/50 transition-colors'>
+                GitHub
               </a>
               <a
                 href='/Haroon-Mukhtar-Resume.pdf'
@@ -104,6 +112,22 @@ export default function Contact() {
                   href={`tel:${PHONE}`}
                   className='hover:text-accent transition-colors'>
                   {PHONE}
+                </a>
+              </span>
+              <span className='inline-flex items-center gap-2'>
+                <svg
+                  viewBox='0 0 16 16'
+                  className='h-4 w-4 text-accent'
+                  fill='currentColor'
+                  aria-hidden='true'>
+                  <path d='M8 .5a7.5 7.5 0 00-2.37 14.62c.37.07.51-.16.51-.36v-1.26c-2.09.45-2.53-1-2.53-1-.34-.87-.83-1.1-.83-1.1-.68-.47.05-.46.05-.46.75.06 1.15.77 1.15.77.67 1.15 1.76.82 2.19.63.07-.49.26-.82.48-1.01-1.67-.19-3.42-.83-3.42-3.71 0-.82.29-1.49.77-2.01-.08-.19-.34-.95.07-1.98 0 0 .63-.2 2.06.77a7.1 7.1 0 013.75 0c1.43-.97 2.06-.77 2.06-.77.41 1.03.15 1.79.08 1.98.48.52.76 1.19.76 2.01 0 2.89-1.76 3.52-3.43 3.7.27.23.51.69.51 1.39v2.06c0 .2.14.44.52.36A7.5 7.5 0 008 .5z' />
+                </svg>
+                <a
+                  href={GITHUB}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='hover:text-accent transition-colors'>
+                  github.com/haroongondal
                 </a>
               </span>
               <span className='inline-flex items-center gap-2'>

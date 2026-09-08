@@ -52,8 +52,8 @@ export default function Skills() {
         <Reveal>
           <SectionHeading
             eyebrow="Skills"
-            title="Tools of the trade"
-            description="A focused, production-tested stack — deep in the TypeScript ecosystem, cloud infrastructure, and modern AI tooling."
+            title="The stack I work in"
+            description="What I use day to day: the TypeScript ecosystem, cloud infrastructure, and current AI tooling."
           />
         </Reveal>
 

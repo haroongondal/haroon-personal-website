@@ -4,15 +4,15 @@ import SectionHeading from "./SectionHeading";
 const FOCUS_AREAS = [
   {
     title: "Product engineering, end to end",
-    body: "From UI systems and design details to APIs, data models, and deployment pipelines — I own features across the full stack and ship them to production.",
+    body: "I own features across the full stack: the UI and its design details, the APIs and data models behind it, and the pipeline that deploys the whole thing.",
   },
   {
-    title: "Systems thinking",
-    body: "Website builders, enterprise operations platforms, collaborative tools — I design software as systems: modular, maintainable, and built to scale with the product.",
+    title: "Modular systems",
+    body: "Website builders, enterprise operations platforms, collaborative tools. All of them needed modules with clear boundaries, so the codebase stays workable as the product grows.",
   },
   {
     title: "AI as an engineering discipline",
-    body: "I treat LLM applications like production software: agent orchestration, retrieval pipelines, memory, evals, and reliability — not demo-ware.",
+    body: "I treat LLM applications like production software. Agent orchestration, retrieval pipelines, memory, and evals get the same attention as the rest of the stack.",
   },
 ];
 
@@ -23,7 +23,7 @@ export default function About() {
         <Reveal>
           <SectionHeading
             eyebrow="About"
-            title="An engineer who builds products, not just screens"
+            title="How I work"
           />
         </Reveal>
 
@@ -31,28 +31,26 @@ export default function About() {
           <Reveal delay={100}>
             <div className="space-y-5 text-base leading-relaxed text-muted">
               <p>
-                I&apos;m a Senior Full Stack Engineer based in Islamabad, Pakistan, with
-                5+ years of experience turning ambitious product ideas into
-                production software. My work spans no-code website builders,
-                enterprise business platforms, virtual classrooms, e-commerce
-                frontends, and — increasingly — AI-powered products.
+                I&apos;m a Senior Full Stack Engineer based in Islamabad, Pakistan,
+                with five years of experience building production software.
+                I&apos;ve worked on no-code website builders, enterprise
+                business platforms, virtual classrooms, e-commerce frontends,
+                and lately AI products.
               </p>
               <p>
-                My core toolkit is the TypeScript ecosystem: React and Next.js on
-                the frontend, Node.js and NestJS on the backend, with PostgreSQL,
-                AWS, and CI/CD pipelines underneath. I care about the things
-                senior engineers are supposed to care about — architecture that
-                stays maintainable, performance budgets, accessibility, and the
-                developer experience of the people who work in the codebase after
-                me.
+                Most of that work sits in the TypeScript ecosystem: React and
+                Next.js on the frontend, Node.js and NestJS on the backend, with
+                PostgreSQL, AWS, and CI/CD pipelines underneath. The parts I pay
+                closest attention to are architecture that stays maintainable,
+                performance budgets, accessibility, and whether the next person
+                to open the codebase can find their way around it.
               </p>
               <p>
-                Over the last few years I&apos;ve built a deep specialization in AI
+                Over the last few years the work has shifted toward AI
                 engineering: LLM-powered assistants, agentic workflows,
-                retrieval-augmented generation, tool-using agents, and autonomous
-                pipelines that run in production. I&apos;m most at home at the
-                intersection of solid product engineering and modern AI systems —
-                building things that are genuinely useful, fast, and reliable.
+                retrieval-augmented generation, tool-using agents, and
+                autonomous pipelines running in production. That overlap between
+                product engineering and AI systems is where I do my best work.
               </p>
             </div>
           </Reveal>
