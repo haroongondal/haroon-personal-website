@@ -1,6 +1,6 @@
 import Reveal from './Reveal';
 
-const EMAIL = 'haroonmukhtar4@gmail.com';
+export const EMAIL = 'haroonmukhtar4@gmail.com';
 const PHONE = '+923066661223';
 const LINKEDIN = 'https://www.linkedin.com/in/haroon66';
 const GITHUB = 'https://github.com/haroongondal';
