@@ -5,6 +5,7 @@ import SectionHeading from "./SectionHeading";
 const REPO = "https://github.com/haroongondal/apps-hub/tree/main";
 
 type App = {
+  slug: string;
   name: string;
   platforms: string;
   tagline: string;
@@ -16,6 +17,7 @@ type App = {
 
 const APPS: App[] = [
   {
+    slug: "homenet",
     name: "HomeNet",
     platforms: "Android · iOS",
     tagline: "Home network scanner and diagnostics",
@@ -25,6 +27,7 @@ const APPS: App[] = [
     sourcePath: "apps/netlens",
   },
   {
+    slug: "tunnelwall",
     name: "TunnelWall",
     platforms: "Android",
     tagline: "VPN client and per-app firewall",
@@ -34,6 +37,7 @@ const APPS: App[] = [
     sourcePath: "apps/open_tunnel_vpn",
   },
   {
+    slug: "pdf-editor",
     name: "PDF Editor",
     platforms: "Android · Mac",
     tagline: "Offline PDF editor with a searchable library",
@@ -43,6 +47,7 @@ const APPS: App[] = [
     sourcePath: "apps/pdf-editor-mobile",
   },
   {
+    slug: "design-editor",
     name: "Design Editor",
     platforms: "Mac · Android",
     tagline: "Offline Canva-style editor with media tools",
@@ -52,6 +57,7 @@ const APPS: App[] = [
     sourcePath: "apps/design-editor",
   },
   {
+    slug: "store",
     name: "Store",
     platforms: "Android",
     tagline: "Private app store for my own apps",
@@ -61,6 +67,7 @@ const APPS: App[] = [
     sourcePath: "apps/store",
   },
   {
+    slug: "deputy",
     name: "Deputy",
     platforms: "Android",
     tagline: "Phone agent that operates other apps",
@@ -70,6 +77,7 @@ const APPS: App[] = [
     sourcePath: "apps/deputy",
   },
   {
+    slug: "strongroom",
     name: "Strongroom",
     platforms: "Android · Chrome",
     tagline: "Password manager in my own code",
@@ -105,6 +113,9 @@ function AppCard({ app, index }: { app: App; index: number }) {
         </div>
 
         <div className="mt-auto flex flex-wrap gap-5 pt-6 text-sm font-semibold">
+          <Link href={`/apps/${app.slug}`} className="text-accent hover:text-accent-3 transition-colors">
+            Why I built it →
+          </Link>
           <a
             href={`${REPO}/${app.sourcePath}`}
             target="_blank"

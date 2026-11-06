@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 type Project = {
   id: string;
+  hasPage?: boolean;
   badge: string;
   badgeClass: string;
   title: string;
@@ -22,6 +24,7 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     id: "agent-builder",
+    hasPage: true,
     badge: "Flagship · Multi-Agent Platform",
     badgeClass: "bg-emerald-400/10 border-emerald-400/40 text-emerald-300",
     title: "Agent Builder",
@@ -55,6 +58,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "centralised-auth-service",
+    hasPage: true,
     badge: "Platform · Identity & Access",
     badgeClass: "bg-amber-400/10 border-amber-400/40 text-amber-300",
     title: "Centralised Auth Service",
@@ -88,6 +92,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "autonomous-browsing",
+    hasPage: true,
     badge: "AI Agent · Desktop App",
     badgeClass: "bg-teal-400/10 border-teal-400/40 text-teal-300",
     title: "Autonomous Browsing",
@@ -119,6 +124,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "agent-harness",
+    hasPage: true,
     badge: "Personal · Multi-Agent Systems",
     badgeClass: "bg-fuchsia-400/10 border-fuchsia-400/40 text-fuchsia-300",
     title: "Agent Harness",
@@ -301,23 +307,33 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             ))}
           </div>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls={detailsId}
-            className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-3 transition-colors"
-          >
-            {open ? "Hide case study" : "Read case study"}
-            <svg
-              viewBox="0 0 16 16"
-              className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-              fill="none"
-              aria-hidden="true"
+          <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls={detailsId}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-3 transition-colors"
             >
-              <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+              {open ? "Hide case study" : "Read case study"}
+              <svg
+                viewBox="0 0 16 16"
+                className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                fill="none"
+                aria-hidden="true"
+              >
+                <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {project.hasPage && (
+              <Link
+                href={`/projects/${project.id}`}
+                className="text-sm font-semibold text-accent hover:text-accent-3 transition-colors"
+              >
+                Why I built it →
+              </Link>
+            )}
+          </div>
         </div>
 
         <div
