@@ -27,13 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteUrl}/strongroom`,
-      lastModified: new Date("2026-11-05"),
+      lastModified: new Date("2026-11-06"),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${siteUrl}/strongroom/privacy`,
-      lastModified: new Date("2026-11-05"),
+      lastModified: new Date("2026-11-06"),
       changeFrequency: "yearly",
       priority: 0.3,
     },

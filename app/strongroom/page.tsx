@@ -4,7 +4,7 @@ import { EMAIL } from '@/components/Contact';
 
 const title = 'Strongroom · Password manager for Chrome';
 const description =
-  'Strongroom is a Chrome extension that keeps your logins in an encrypted vault on your own computer.';
+  'Strongroom is a Chrome extension that keeps your logins in an encrypted vault on your own computer, with optional encrypted sync to the Strongroom Android app.';
 
 export const metadata: Metadata = {
   title,
@@ -45,16 +45,27 @@ export default function StrongroomPage() {
       <h2>Your data</h2>
       <p>
         Your logins are encrypted with your master password and stored in your
-        Chrome profile. The extension makes no network requests, and the
-        developer receives nothing from it. Read the{' '}
+        Chrome profile. Until you turn on sync, the extension makes no network
+        requests, and the developer receives nothing from it. Read the{' '}
         <Link href='/strongroom/privacy'>privacy policy</Link> for the details.
       </p>
 
-      <h2>Requirements</h2>
+      <h2>Sync</h2>
       <p>
-        Chrome 127 or later on Mac or Windows. There is no sync yet, so your
-        vault lives in one browser profile.
+        Strongroom can sync with the Strongroom Android app, so the same
+        logins are on the phone and in Chrome. Sync goes through a vault server
+        I run on my own Cloudflare account. Every login is encrypted before it
+        leaves the browser, so the server sees record IDs, sizes and
+        timestamps, never names, sites, usernames or passwords.
       </p>
+      <p>
+        Strongroom is a personal project, and that server holds one account:
+        mine. If you install the extension, use it without sync. Your vault
+        stays in your Chrome profile and works the same way.
+      </p>
+
+      <h2>Requirements</h2>
+      <p>Chrome 127 or later on Mac or Windows.</p>
 
       <h2 id='support'>Support</h2>
       <p>
@@ -84,7 +95,12 @@ export default function StrongroomPage() {
       </p>
 
       <h3>Does it sync between devices?</h3>
-      <p>Not yet. Each browser profile has its own vault.</p>
+      <p>
+        Yes, with the Strongroom Android app, after you sign in with your
+        master password and the account key the phone app shows when it
+        creates the account. The sync server I run holds only my own account,
+        so for anyone else each browser profile keeps its own vault.
+      </p>
     </>
   );
 }
