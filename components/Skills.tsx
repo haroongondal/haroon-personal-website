@@ -16,6 +16,9 @@ const GROUPS = [
       "Tailwind CSS",
       "Redux",
       "Zustand",
+      "Electron",
+      "React Native",
+      "Kotlin",
     ],
   },
   {
@@ -29,19 +32,22 @@ const GROUPS = [
       "LangChain",
       "LlamaIndex",
       "Model Context Protocol (MCP)",
+      "Mastra",
+      "Vercel AI SDK",
+      "Claude API",
     ],
   },
   {
     title: "Databases & Infrastructure",
     accent: "text-cyan-400",
     border: "hover:border-cyan-400/40",
-    skills: ["PostgreSQL", "MySQL", "AWS", "Docker", "Linux", "CI/CD"],
+    skills: ["PostgreSQL", "MySQL", "SQLite", "AWS", "Cloudflare Workers", "Docker", "Linux", "CI/CD"],
   },
   {
     title: "Developer Productivity & Tools",
     accent: "text-violet-400",
     border: "hover:border-violet-400/40",
-    skills: ["Git", "Claude Code", "Cursor", "v0.dev", "Postman"],
+    skills: ["Git", "Claude Code", "Cursor", "Playwright", "v0.dev", "Postman"],
   },
 ];
 

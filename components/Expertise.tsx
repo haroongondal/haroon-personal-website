@@ -58,6 +58,7 @@ const AREAS = [
       "AWS deployments & hosting architecture",
       "CI/CD pipelines & Docker",
       "Domain & SSL configuration automation",
+      "Edge gateways & single sign-on on Cloudflare Workers",
       "Scalable publishing & deployment workflows",
       "Performance optimization in production",
     ],

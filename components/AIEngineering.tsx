@@ -14,6 +14,9 @@ const CAPABILITIES = [
   "Financial & business AI copilots",
   "AI automation pipelines",
   "Model Context Protocol (MCP)",
+  "Coding agents",
+  "Browser automation agents",
+  "Agent evals & monitoring",
 ];
 
 const PIPELINE_STEPS = [

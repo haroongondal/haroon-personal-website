@@ -8,12 +8,14 @@ const ROLES = [
     period: 'June 2026 — Present',
     current: true,
     summary:
-      'Built an autonomous LLM agent (Mastra, TypeScript, Claude) that monitors financial events daily and generates analyst-grade earnings digests and email drafts, pulling from several external data and productivity services through a pipeline orchestrated in code.',
+      'Building AI agents for a financial research firm, along with the internal platform they run on: earnings and transcript agents, a browser automation app, and the sign-in service in front of their internal apps.',
     points: [
       'Built a multi-agent financial research platform (TypeScript/Mastra) automating earnings monitoring, analyst report drafting, and research chat',
       'Designed a self-healing daily monitor that ingests earnings/event data, drafts digest emails, and updates calendars unattended via MCP integrations (Aiera, Gmail, Drive, Calendar)',
-      'Built a 5-pass pipeline that writes analyst anecdotes grounded in verbatim KPIs',
-      'Built a conversational research agent with semantic memory recall and per-request tool routing',
+      'Rebuilt a 5-pass pipeline that turns Zoom expert-call transcripts into analyst anecdotes, with a review queue and an editor agent that learns house rules',
+      'Built a research chat agent with semantic memory recall over shared and private knowledge bases',
+      'Built and deployed a central sign-in and access-policy service on Cloudflare Workers and AWS, now in front of four internal apps',
+      'Built an Electron agent that drives Chrome with Claude and saves runs as routines that replay without the model',
       'Kept dedup, state, and templating in code, with LLM calls scoped to bounded judgment tasks (structured in, structured out)',
       'Developed a custom React front end for research operations and streaming agent interaction',
     ],

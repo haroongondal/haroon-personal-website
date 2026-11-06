@@ -21,34 +21,134 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    id: "outsentia-research-platform",
+    id: "agent-builder",
     badge: "Flagship · Multi-Agent Platform",
     badgeClass: "bg-emerald-400/10 border-emerald-400/40 text-emerald-300",
-    title: "Outsentia Research Platform",
-    tagline: "Autonomous equity research operations & earnings intelligence",
+    title: "Agent Builder",
+    tagline: "Research agents for a financial research firm",
     summary:
-      "A multi-agent platform for equity research operations, built on Mastra and TypeScript. A daily Earnings & Events Monitor pulls live data via MCP (Aiera, Gmail, Drive, Calendar), synthesizes digests against internal reports, and updates calendars with no human in the loop. A 5-pass LLM pipeline writes analyst anecdotes grounded in verbatim KPIs, and a research chat agent handles semantic memory recall and per-request tool routing. LLMs only make bounded judgment calls, structured in and structured out; state, dedup, and templating stay deterministic in code.",
+      "A TypeScript monorepo of research agents: a Mastra agent service, a NestJS gateway and a React front end. An earnings monitor pulls live data via MCP (Aiera, Gmail, Drive, Calendar), writes digests, updates calendars and leaves the emails as drafts. A transcript pipeline turns recorded expert calls into analyst anecdotes in the firm's house style, and a research chat agent answers from shared and private knowledge bases with semantic memory recall. LLMs only make bounded judgment calls, structured in and structured out; state, dedup, and templating stay deterministic in code.",
     problem:
-      "During earnings season, analysts monitor live events, cross-reference internal reports, draft daily digests, and track KPI anecdotes by hand, across tools and data sources that do not talk to each other.",
+      "During earnings season, analysts monitor live events, cross-reference internal reports, and draft daily digests by hand. After every expert call someone also writes the call up as anecdotes in the house style. The tools and data sources involved do not talk to each other.",
     solution:
-      "An earnings-intelligence system for a financial research firm. A self-healing daily monitor ingests earnings and event data, drafts digest emails, and updates calendars unattended. Alongside it run a 5-pass anecdote-generation pipeline and a research chat agent with semantic recall. Dedup and state live in code, and LLM calls are scoped to judgment tasks only.",
+      "A scheduled sweep pulls the earnings watchlist over MCP, dedupes events with single-purpose LLM calls, and sends small research agents for consensus and price anchors. Code then builds the digest, updates Google Calendar and creates Gmail drafts. When a Zoom call ends, a webhook queues a job and a background worker runs a 5-pass anecdote pipeline: KPI selection, synthesis, a lint and rewrite pass, a completeness check, and sentiment. The result lands as a .docx attached to a Gmail draft, and analysts review it in a queue.",
     features: [
-      "Self-healing daily Earnings & Events Monitor pulling live data via MCP",
-      "Live MCP integrations with Aiera, Gmail, Google Drive, and Google Calendar",
-      "Unattended synthesis of analyst-grade earnings digests and email drafts",
-      "5-pass LLM pipeline writing analyst anecdotes grounded in verbatim KPIs",
-      "Research chat agent with semantic memory recall and per-request tool routing",
+      "Earnings & Events Monitor pulling live data via MCP, run per user with their own Google connection",
+      "Zoom transcripts turned into analyst anecdotes by a 5-pass LLM pipeline, delivered as .docx drafts",
+      "Anecdote channels with their own KPIs, tone, recipients and call matchers, plus a review queue",
+      "Editor agent that separates one-off edits from lasting house rules, which a person approves",
+      "Research chat agent with semantic memory recall, working memory and tool approval prompts",
+      "Shared and private knowledge bases built from PDF and markdown, embedded locally",
+      "Monitoring with traces, health checks, deduplicated alerts, cost estimates and an eval gate",
       "Custom React front end for research workflows and real-time interaction",
     ],
     highlights: [
       "Mastra agent framework orchestrating LLM reasoning with deterministic TypeScript code",
-      "LLM calls scoped to bounded judgment tasks, structured in and structured out",
-      "State, deduplication, and templating owned by code rather than the model",
-      "Daily calendar updates and email drafting run with no human in the loop",
+      "Base prompts never change, so they stay cached; learned house rules are appended after them",
+      "MCP tools are mapped to fixed names, so the model never sees each server's raw tool names",
+      "Zoom webhooks are verified with a constant-time signature check and answered at once, with the slow work queued",
+      "Per-user Google OAuth tokens encrypted at rest with AES-256-GCM",
     ],
     impact:
-      "A multi-agent financial research platform (TypeScript, Mastra) that automates earnings monitoring, analyst report drafting, and research chat. Deterministic code orchestrates the LLM reasoning, with live MCP integrations (Aiera, Gmail, Drive, Calendar) and a custom React front end.",
-    stack: ["TypeScript", "Mastra", "Claude", "React", "MCP", "Aiera API", "Google Workspace APIs", "Node.js"],
+      "Digests, calendar updates and call write-ups arrive as drafts for an analyst to check and send. The manual part of earnings season shrinks to review.",
+    stack: ["TypeScript", "Mastra", "Claude", "Vercel AI SDK", "MCP", "NestJS", "React", "libSQL", "Docker"],
+  },
+  {
+    id: "centralised-auth-service",
+    badge: "Platform · Identity & Access",
+    badgeClass: "bg-amber-400/10 border-amber-400/40 text-amber-300",
+    title: "Centralised Auth Service",
+    tagline: "One sign-in and one access policy for a company's internal apps",
+    summary:
+      "A Cloudflare Worker gateway signs people in once, with a magic link or a 6-digit code, and sits in front of every internal app. On each request it checks the session and whether the person may use that app, then forwards a short-lived signed identity. An admin portal compiles users, groups and grants into a versioned SQLite policy file, and an SDK lets each app answer detailed permission questions locally from that file. It is deployed, with four apps behind it.",
+    problem:
+      "Each app ran its own login and its own permission tables. One used database roles, one used shared API keys and one had no auth at all, so nobody could grant, review or revoke access in one place.",
+    solution:
+      "Sign-in happens on a single login host, and a one-time handoff code tied to the browser that started it carries the session back to the app's own domain. On every request the gateway mints a 5-minute ES256 JWT and proxies to the origin through Cloudflare Tunnels, behind a WAF rule that admits only the Worker. Apps verify the token against a static JWKS and ask the SDK what the person may do; it returns the limits that apply, and the app applies them to its own queries. Services use app tokens: deploy tokens send an app's capability list from CI, and runtime tokens let a running app poll for new policy versions.",
+    features: [
+      "Passwordless cross-domain sign-in with a magic link or a one-time code",
+      "Edge gateway with per-host routes, API path routing and public webhook lanes",
+      "Admin portal for users, groups, grants with include and exclude limits, publishing and version history",
+      "Policy compiler that turns the admin database into a versioned SQLite file",
+      "SDK with Express middleware and an edge-safe token verifier",
+      "App tokens for deploy pipelines and running services, stored only as SHA-256 hashes",
+      "Capability sync from CI that is safe to run repeatedly",
+    ],
+    highlights: [
+      "Unknown addresses get a sign-in nobody can complete, with the same storage writes and timing as a real account, so accounts can't be enumerated",
+      "The proxy overwrites the identity header and strips gateway cookies in every spelling the parser accepts",
+      "Apps deny everything until a policy loads, then refresh it with ETag polling, backoff, a hash check and a version floor",
+      "A deploy can't widen access: removed capabilities stay with a warning, and limit changes wait for an admin to publish",
+      "Policy versions are write-once in S3, and deploys authenticate with GitHub OIDC instead of stored AWS keys",
+      "Requesting a sign-in email went from 6–8 s to under 2 s after parallelising KV calls and deferring writes",
+    ],
+    impact:
+      "Access to four internal apps is granted and revoked in one place, and each app checks permissions locally without calling the gateway.",
+    stack: ["TypeScript", "Cloudflare Workers", "Hono", "Workers KV", "NestJS", "SQLite", "Drizzle", "React", "AWS", "GitHub Actions"],
+  },
+  {
+    id: "autonomous-browsing",
+    badge: "AI Agent · Desktop App",
+    badgeClass: "bg-teal-400/10 border-teal-400/40 text-teal-300",
+    title: "Autonomous Browsing",
+    tagline: "Browser automation agent that saves its runs as routines",
+    summary:
+      "An Electron app for an internal operations team. You type a goal and Claude drives a real Chrome to reach it, one action at a time. A finished run can be saved as a routine that replays later without calling the model. When a site changes, the routine proposes a repair or stops and asks a person.",
+    problem:
+      "Web chores needed a person watching, and scripted automations broke whenever a site changed its layout. The team wanted runs that finish without supervision and that they can trust afterwards.",
+    solution:
+      "The app starts its own Chrome on a dedicated profile and attaches with Playwright over CDP. A second backend drives the user's everyday Chrome through an extension and a native-messaging relay. Each step sends the model a filtered DOM and a compressed screenshot, and the model picks the next action through a tool call. Saved routines are JSON steps with parameters, stored in SQLite. Replay makes no model calls while it works; a broken step goes through selector ranking, a check that the page reacted, an LLM repair and finally a human hold.",
+    features: [
+      "Goal runs that hand off to a person at a CAPTCHA, login or bot wall",
+      "Routines with parameters, assert steps, and revision history with undo",
+      "Proposed repairs wait in a review queue and are never written back silently",
+      "Run queue and resume from failure that never repeats a step that placed an order",
+      "Per-site memory of page landmarks that users can inspect and clear",
+      "Run history with a token and cost meter, and a health view per routine",
+      "Export and import with secret detection and redaction",
+    ],
+    highlights: [
+      "Both browser backends inject the same in-page engine, so their safety checks can't drift apart",
+      "Page content reaches the model inside a fresh random fence each turn, as a prompt-injection defence",
+      "The DOM is cut to an interactive skeleton, screenshots are capped at 1024×768, and only the last two pages stay in the thread",
+      "Model evals are graded by code against fixture pages",
+    ],
+    impact:
+      "Repetitive web checks run unattended, and a routine that worked once keeps working after a site changes, with a person approving every repair.",
+    stack: ["Electron", "TypeScript", "React", "Playwright", "Claude", "SQLite", "Chrome Extensions"],
+  },
+  {
+    id: "agent-harness",
+    badge: "AI Developer Tools",
+    badgeClass: "bg-fuchsia-400/10 border-fuchsia-400/40 text-fuchsia-300",
+    title: "Agent Harness",
+    tagline: "Model-agnostic coding agent with VS Code, CLI and desktop front ends",
+    summary:
+      "A coding agent I built for my own work that runs on any model. One headless engine handles sessions, tools, the sandbox, undo and subagents, and three front ends drive it: a VS Code extension, a terminal CLI and an Electron app. For each capability I took the design from whichever of Cursor, Codex or Claude Code handles it best.",
+    problem:
+      "Each of the leading coding agents is strongest at something different, and each is tied to its vendor's models. I wanted those strengths in one tool, driven by whichever model suits the task.",
+    solution:
+      "The engine has no Electron or VS Code imports and talks to its front ends over typed JSON-RPC. A turn streams from the model through the Vercel AI SDK and starts each tool call as soon as it arrives, running reads in parallel and writes one at a time. A shadow git snapshot is taken around every edit, so any change can be undone. Shell commands run in a macOS Seatbelt sandbox, and approvals can be saved as rules. Subagents run up to three levels deep, in the background or in their own git worktrees.",
+    features: [
+      "13 model providers, from OpenAI, Anthropic and Google to local models through Ollama and LM Studio",
+      "Inline Keep and Undo for each change in VS Code, plus a review group in source control",
+      "apply_patch ported from Codex and given to GPT models as a grammar-constrained tool",
+      "Background subagents with their own git worktrees, resumable by ID",
+      "Reads existing skills, slash commands and agent files from Claude Code and Cursor projects",
+      "Sandboxed JavaScript workflows whose finished steps replay on a re-run",
+      "CLI with one-shot runs, per-change review, undo and rewind",
+    ],
+    highlights: [
+      "Tool calls start mid-stream under an ordered read/write lock",
+      "Retries are classified as server, network or stall errors, honour retry-after, and keep partial steps instead of re-running tools",
+      "Switching models mid-session rewrites tool calls the new model can't use into plain text",
+      "Cost is tracked per step, cached tokens included, and stored in SQLite",
+      "Project settings and rules files are untrusted, so a cloned repo can't redirect API keys or loosen the sandbox",
+      "Over 1,100 unit tests, plus Electron end-to-end and VS Code extension suites",
+    ],
+    impact:
+      "One undo history, sandbox and set of skills across 13 providers. In the first end-to-end test, GPT-5.5 and Claude Sonnet 5.5 each completed the same task in a real repo, for $0.61 and $0.12.",
+    stack: ["TypeScript", "Vercel AI SDK", "VS Code API", "Electron", "React", "SQLite", "node-pty"],
   },
   {
     id: "ai-builder",
@@ -273,7 +373,7 @@ export default function Projects() {
           <SectionHeading
             eyebrow="Featured Projects"
             title="Selected case studies"
-            description="Production systems I designed and built, each one shipped and running with real users."
+            description="Systems I designed and built for employers, clients and my own use."
           />
         </Reveal>
 

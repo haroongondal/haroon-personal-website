@@ -65,7 +65,7 @@ const APPS: App[] = [
     platforms: "Android",
     tagline: "Phone agent that operates other apps",
     summary:
-      "Takes a task in plain words and carries it out by reading the screen and tapping, typing and scrolling through other apps with an accessibility service. The agent loop runs in Kotlin, and it stops to ask before any step it can't undo.",
+      "Takes a task in plain words and carries it out by reading the screen and tapping, typing and scrolling through other apps with an accessibility service. The agent loop runs in Kotlin, and it stops to ask before any step it can't undo. It can also turn photos on the phone into a video by itself, without driving an editing app.",
     stack: ["React Native", "Kotlin", "Accessibility API", "LLM tool calling"],
     sourcePath: "apps/deputy",
   },
@@ -74,8 +74,8 @@ const APPS: App[] = [
     platforms: "Android · Chrome",
     tagline: "Password manager in my own code",
     summary:
-      "Keeps logins in an encrypted vault on the device and fills them into other apps through Android's autofill service. The vault logic lives in Kotlin, and a Chrome extension covers the browser.",
-    stack: ["Kotlin", "React Native", "Android Autofill", "Chrome extension"],
+      "Keeps logins, cards and notes in a vault encrypted with Argon2id and AES-256-GCM, and fills them into other apps through Android's autofill service. A Chrome extension fills websites, and sync runs through my own Cloudflare Worker, which only ever holds ciphertext.",
+    stack: ["Kotlin", "React Native", "Android Autofill", "Chrome extension", "Cloudflare Workers"],
     sourcePath: "apps/strongroom",
     extraLink: { href: "/strongroom", label: "Chrome extension" },
   },
