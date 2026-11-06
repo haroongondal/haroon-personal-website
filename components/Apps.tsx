@@ -17,6 +17,27 @@ type App = {
 
 const APPS: App[] = [
   {
+    slug: "deputy",
+    name: "Deputy",
+    platforms: "Android",
+    tagline: "Phone agent that operates other apps",
+    summary:
+      "Takes a task in plain words and carries it out by reading the screen and tapping, typing and scrolling through other apps with an accessibility service. The agent loop runs in Kotlin, and it stops to ask before any step it can't undo. It can also turn photos on the phone into a video by itself, without driving an editing app.",
+    stack: ["React Native", "Kotlin", "Accessibility API", "LLM tool calling"],
+    sourcePath: "apps/deputy",
+  },
+  {
+    slug: "strongroom",
+    name: "Strongroom",
+    platforms: "Android · Chrome",
+    tagline: "Password manager in my own code",
+    summary:
+      "Keeps logins, cards and notes in a vault encrypted with Argon2id and AES-256-GCM, and fills them into other apps through Android's autofill service. A Chrome extension fills websites, and sync runs through my own Cloudflare Worker, which only ever holds ciphertext.",
+    stack: ["Kotlin", "React Native", "Android Autofill", "Chrome extension", "Cloudflare Workers"],
+    sourcePath: "apps/strongroom",
+    extraLink: { href: "/strongroom", label: "Chrome extension" },
+  },
+  {
     slug: "homenet",
     name: "HomeNet",
     platforms: "Android · iOS",
@@ -37,16 +58,6 @@ const APPS: App[] = [
     sourcePath: "apps/open_tunnel_vpn",
   },
   {
-    slug: "pdf-editor",
-    name: "PDF Editor",
-    platforms: "Android · Mac",
-    tagline: "Offline PDF editor with a searchable library",
-    summary:
-      "One shared editing engine runs in a WebView on Android and in Electron on the Mac. The phone app keeps documents in a library with folders, tags and full-text search, and it normalises Arabic and Urdu text so searches still match.",
-    stack: ["React Native", "Electron", "PDF.js", "pdf-lib", "SQLite"],
-    sourcePath: "apps/pdf-editor-mobile",
-  },
-  {
     slug: "design-editor",
     name: "Design Editor",
     platforms: "Mac · Android",
@@ -65,27 +76,6 @@ const APPS: App[] = [
       "Installs and updates the Android apps on this page, itself included. Before every install it checks the file's SHA-256 hash, the package name and the signing certificate. Builds are published from the command line to a Cloudflare Worker that hands out signed download links.",
     stack: ["React Native", "Kotlin", "WorkManager", "Cloudflare Workers"],
     sourcePath: "apps/store",
-  },
-  {
-    slug: "deputy",
-    name: "Deputy",
-    platforms: "Android",
-    tagline: "Phone agent that operates other apps",
-    summary:
-      "Takes a task in plain words and carries it out by reading the screen and tapping, typing and scrolling through other apps with an accessibility service. The agent loop runs in Kotlin, and it stops to ask before any step it can't undo. It can also turn photos on the phone into a video by itself, without driving an editing app.",
-    stack: ["React Native", "Kotlin", "Accessibility API", "LLM tool calling"],
-    sourcePath: "apps/deputy",
-  },
-  {
-    slug: "strongroom",
-    name: "Strongroom",
-    platforms: "Android · Chrome",
-    tagline: "Password manager in my own code",
-    summary:
-      "Keeps logins, cards and notes in a vault encrypted with Argon2id and AES-256-GCM, and fills them into other apps through Android's autofill service. A Chrome extension fills websites, and sync runs through my own Cloudflare Worker, which only ever holds ciphertext.",
-    stack: ["Kotlin", "React Native", "Android Autofill", "Chrome extension", "Cloudflare Workers"],
-    sourcePath: "apps/strongroom",
-    extraLink: { href: "/strongroom", label: "Chrome extension" },
   },
 ];
 
