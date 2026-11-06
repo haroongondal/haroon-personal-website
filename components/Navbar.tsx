@@ -7,6 +7,7 @@ const LINKS = [
   { href: "#about", label: "About" },
   { href: "#expertise", label: "Expertise" },
   { href: "#projects", label: "Projects" },
+  { href: "#apps", label: "Apps" },
   { href: "#experience", label: "Experience" },
   { href: "#ai-engineering", label: "AI Engineering" },
   { href: "#skills", label: "Skills" },
@@ -59,7 +60,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                className={`whitespace-nowrap rounded-full px-2.5 xl:px-3.5 py-1.5 text-sm transition-colors ${
                   active === link.href
                     ? "text-foreground bg-raised border border-edge-strong"
                     : "text-muted hover:text-foreground"
@@ -73,7 +74,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden lg:inline-flex items-center rounded-full bg-accent/10 border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent hover:bg-accent/20 transition-colors"
+          className="hidden lg:inline-flex items-center whitespace-nowrap rounded-full bg-accent/10 border border-accent/40 px-4 py-1.5 text-sm font-medium text-accent hover:bg-accent/20 transition-colors"
         >
           Let&apos;s Talk
         </a>

@@ -4,6 +4,7 @@ import ImpactStrip from "@/components/ImpactStrip";
 import About from "@/components/About";
 import Expertise from "@/components/Expertise";
 import Projects from "@/components/Projects";
+import Apps from "@/components/Apps";
 import Experience from "@/components/Experience";
 import AIEngineering from "@/components/AIEngineering";
 import Skills from "@/components/Skills";
@@ -21,6 +22,7 @@ export default function Home() {
         <About />
         <Expertise />
         <Projects />
+        <Apps />
         <Experience />
         <AIEngineering />
         <Skills />
